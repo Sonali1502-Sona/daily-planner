@@ -1,27 +1,83 @@
-@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
-*{
+/* cyrillic */
+@font-face {
+  font-family: 'Jost';
+  font-style: italic;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/jost/v20/92zUtBhPNqw73oHt5D4hTxM.woff2) format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Jost';
+  font-style: italic;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/jost/v20/92zUtBhPNqw73oHt7j4hTxM.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Jost';
+  font-style: italic;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/jost/v20/92zUtBhPNqw73oHt4D4h.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Jost';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/jost/v20/92zatBhPNqw73oDd4iYl.woff2) format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Jost';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/jost/v20/92zatBhPNqw73ord4iYl.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Jost';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/jost/v20/92zatBhPNqw73oTd4g.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-body{
+
+body {
     font-family: "Jost", sans-serif;
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background:url()
-    no-repeat center center/cover;
-}
-.container{
     display: flex;
     justify-content: center;
     align-items: center;
-    width :100%;
+    height: 100vh;
+    background: linear-gradient(135deg, #f857a6, #ff5858);
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
     height: 100%;
     padding: 0 20px;
 }
-.todo-app{
+
+.todo-app {
     width: 100%;
     max-width: 400px;
     padding: 2rem;
@@ -29,57 +85,183 @@ body{
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    gap:30px;
+    gap: 30px;
     color: #fff;
     border-radius: 20px;
-    box-shadow: 0 0 100px rgba(0,0,0,0.5);
-    border: 3px solid rgba(255,255,255,0.18);
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 100px rgba(0, 0, 0, 0.5);
+    border: 3px solid rgba(255, 255, 255, 0.18);
     backdrop-filter: blur(10px);
 }
-.todo-app h1{
+
+.todo-app h1 {
     font-size: 2rem;
+    letter-spacing: 1px;
 }
-.input-area{
+
+.input-area {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
 }
-.input-area input{
+
+.input-area input {
     flex: 1;
     padding: 10px 17px;
     font-size: 1.1rem;
     border: none;
-    border-radius: 5px;
     outline: none;
     border-radius: 22px;
-    background: rgba(255,194,209,0.3);
-    color: #dbdbdb
+    background: rgba(255, 194, 209, 0.3);
+    color: #dbdbdb;
+    font-family: "Jost", sans-serif;
 }
-.input-area input::placeholder{
+
+.input-area input::placeholder {
     color: #dcdcdc;
 }
-.input-area button{
+
+.input-area button {
     display: flex;
     align-items: center;
     justify-content: center;
     margin-left: 10px;
-    padding: 8px;
+    width: 42px;
+    height: 42px;
     font-size: 1.1rem;
-    background: rgba(255,194,209,0.3);
-    border: 2px solid rgba(255,255,255,0.18);
+    color: #fff;
+    background: rgba(255, 194, 209, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.18);
+    border-radius: 50%;
     cursor: pointer;
-    transition:all 0.2s ease;
+    transition: all 0.2s ease;
 }
-.input-area button:hover{
-    transform: scale(1.01);
-    background:#ff6f91;
+
+.input-area button:hover {
+    transform: scale(1.08);
+    background: #ff6f91;
+}
+
+.todo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+#task-list {
+    width: 100%;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#task-list li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20% 15px;
+    background: rgba(255, 194, 209, 0.3);
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    font-size: 1.2rem;
+    color: #fff;
+    position: relative;
+    gap: 10px;
+    transition: box-shadow 0.2s ease;
+}
+
+#task-list li:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#task-list li span {
+    flex: 1;
+   
+}
+
+.empty-image {
+    width: 220px;
+    max-width: 100%;
+    display: block;
+    margin: 20px auto;
+    object-fit: contain;
+}
+
+#task-list .task-checkbox {
+    min-width: 20px;
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(25, 255, 255, 0.6);
+    background: transparent;
+    border-radius: 50%;
+    appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+#task-list .task-checkbox:checked {
+    background-color: #ff6f91;
+    border-color: #ff6f91;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path fill='white' d='M6.173 11.4L2.773 8l1.06-1.06 2.34 2.34 5.94-5.94 1.06 1.06z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 12px 12px;
+    transform: scale(1.1);
+}
+
+#task-list li.checkbox:checked ::before{
+    content: \2713;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+
+}
+#task-list li span{
+    flex:1;
+    margin-left: 10px;
+    word-wrap:break-word;
+}
+.task-button{
+    display:flex;
+    gap: 10px;
+    margin-right: auto;
+}
+.task-button button{
+    background: rgba(255, 194, 209, 0.3);
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    width: 30px;
+    height: 30px;
+    color: #fff;
+    font-size: 0.8rem ;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.task-button button:hover{
+    transform: scale(1.2);
+}
+.task-button .edit-btn{
+    background: #ffbf00;
+}
+.task-button .delete-btn{
+    background: #ff4c4c;
 }
 .todo-container{
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-#task-list{
-    width :100%;
-}
+    
