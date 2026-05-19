@@ -1,11 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
     const taskInput      = document.getElementById('task-input');
     const taskList       = document.getElementById('task-list');
-    const emptyImage     = document.querySelector('.empty-image');
-    const todosContainer = document.querySelector('.todo-container');
+    const emptyState     = document.querySelector('.empty-state');
     const form           = document.querySelector('.input-area');
     const progressBar    = document.getElementById('progress');
     const progressNumber = document.getElementById('number');
+    const progressText   = document.getElementById('progress-text');
 
     /* ---------------- Confetti celebration ---------------- */
     const confettiCanvas = document.getElementById('confetti-canvas');
@@ -22,8 +22,8 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('resize', resizeConfettiCanvas);
 
     const launchConfetti = (x, y) => {
-        const colors = ['#ff6f91', '#ffbf00', '#ff4c4c', '#f857a6', '#ff5858', '#ffffff', '#ffd1dc'];
-        for (let i = 0; i < 80; i++) {
+        const colors = ['#ff6f91', '#ffbf00', '#ff4c4c', '#f857a6', '#ff5858', '#ffffff', '#ffd1dc', '#845ef7', '#22d3ee'];
+        for (let i = 0; i < 90; i++) {
             const angle = Math.random() * Math.PI * 2;
             const speed = 3 + Math.random() * 6;
             confettiParticles.push({
@@ -70,14 +70,17 @@ document.addEventListener('DOMContentLoaded', () => {
     tickConfetti();
 
     const toggleEmptyState = () => {
-        emptyImage.style.display = taskList.children.length === 0 ? 'block' : 'none';
+        if (!emptyState) return;
+        emptyState.style.display = taskList.children.length === 0 ? 'flex' : 'none';
     };
 
     const updateProgress = () => {
         const totalTasks     = taskList.children.length;
         const completedTasks = taskList.querySelectorAll('.task-checkbox:checked').length;
-        progressBar.style.width = totalTasks ? `${(completedTasks / totalTasks) * 100}%` : '0%';
+        const pct = totalTasks ? (completedTasks / totalTasks) * 100 : 0;
+        progressBar.style.width = `${pct}%`;
         progressNumber.textContent = `${completedTasks}/${totalTasks}`;
+        if (progressText) progressText.textContent = `${Math.round(pct)}%`;
     };
 
     const saveTasksToLocalStorage = () => {
@@ -147,6 +150,7 @@ document.addEventListener('DOMContentLoaded', () => {
         editBtn.addEventListener('click', () => {
             if (!checkbox.checked) {
                 taskInput.value = li.querySelector('span').textContent;
+                taskInput.focus();
                 li.remove();
                 toggleEmptyState();
                 updateProgress();
@@ -155,10 +159,15 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         li.querySelector('.delete-btn').addEventListener('click', () => {
-            li.remove();
-            toggleEmptyState();
-            updateProgress();
-            saveTasksToLocalStorage();
+            li.style.transition = 'all 0.25s ease';
+            li.style.transform = 'translateX(20px)';
+            li.style.opacity = '0';
+            setTimeout(() => {
+                li.remove();
+                toggleEmptyState();
+                updateProgress();
+                saveTasksToLocalStorage();
+            }, 220);
         });
 
         taskList.appendChild(li);

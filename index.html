@@ -7,32 +7,55 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Animated generated background (pure SVG/CSS, no external image) -->
+    <div class="bg-stage" aria-hidden="true">
+        <div class="bg-gradient"></div>
+        <div class="bg-blob blob-a"></div>
+        <div class="bg-blob blob-b"></div>
+        <div class="bg-blob blob-c"></div>
+        <div class="bg-grain"></div>
+    </div>
+
     <div class="container">
         <div class="todo-app">
-            <h1>TO-DO LIST APP</h1>
+            <header class="app-header">
+                <span class="badge">DAILY</span>
+                <h1>My To-Do List</h1>
+                <p class="subtitle">Stay focused. Finish strong.</p>
+            </header>
+
             <div class="stat-container">
                 <div class="details">
-                    <h3>Keep it Up!</h3>
+                    <h3>Keep it up!</h3>
                     <div id="progressbar">
                         <div id="progress"></div>
                     </div>
+                    <p class="progress-label"><span id="progress-text">0%</span> completed</p>
                 </div>
                 <div class="stat-number">
                     <p id="number">0/0</p>
                 </div>
             </div>
+
             <form class="input-area">
                 <input type="text" id="task-input" placeholder="Add a new task..." required>
                 <button type="submit" id="add-task" aria-label="Add task">
-                    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" fill="none"/></svg>
+                    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+                    </svg>
                 </button>
             </form>
+
             <div class="todo-container">
                 <ul id="task-list"></ul>
-                <img class="empty-image" src="task-list-menu-document.svg" alt="No tasks image">
+                <div class="empty-state">
+                    <img class="empty-image" src="task-list-menu-document.svg" alt="No tasks image">
+                    <p class="empty-text">No tasks yet &mdash; add one above to get started.</p>
+                </div>
             </div>
         </div>
     </div>
+
     <canvas id="confetti-canvas"></canvas>
     <script src="script.js"></script>
 </body>
