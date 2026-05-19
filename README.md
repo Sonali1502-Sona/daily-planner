@@ -27,6 +27,7 @@ https://sonali1502-sona.github.io/daily-planner/
 
 ## 📷 Screenshot
 <!-- Drag-drop your screenshot here in the GitHub README editor -->
+<img width="2880" height="1524" alt="Screenshot 2026-05-19 132209" src="https://github.com/user-attachments/assets/9a63ca90-dbb5-4212-8967-787fe5f15b4e" />
 
 ---
 
