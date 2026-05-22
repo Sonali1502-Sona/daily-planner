@@ -3,7 +3,7 @@
 A beautiful, responsive to-do list app with glassmorphism UI, animated background, progress tracking, and a confetti celebration when you complete tasks.
 
 ## 🚀 Live Demo
-https://github.com/Sonali1502-Sona/daily-planner
+https://sonali1502-sona.github.io/daily-planner/
 
 ---
 
